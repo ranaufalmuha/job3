@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "job3_backend": {
+      "main": "src/job3_backend/main.mo",
+      "type": "motoko"
+    },
+    "job3_frontend": {
+      "dependencies": [
+        "job3_backend"
+      ],
+      "source": [
+        "src/job3_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "job3_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
