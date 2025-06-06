@@ -27,7 +27,7 @@ export const Section1 = () => {
                                 </button>
                             </div>
                             <button className="col-span-5 w-full flex p-4 relative overflow-hidden border border-white/20 text-start text-sm rounded-lg backdrop-blur-sm bg-headlines/10">
-                                <p >Unlock your career with job 3, more than <span className='base-bold'>$1,000,000</span> job available. <span className='text-blue-300'>Discover Job3 Membership {"->"}</span></p>
+                                <p >Unlock your career with job 3, more than <span className='base-bold'>$1,000,000</span> job available. <span className='text-textHighlight'>Discover Job3 Membership {"->"}</span></p>
                             </button>
                         </div>
                     </div>

@@ -85,7 +85,7 @@ export const Section2 = () => {
                                         <HugeiconsIcon icon={PlusSignIcon} />
                                     } />
                                 </div>
-                                <img src={items.imgUrl} className='absolute w-full h-full top-0 left-0 object-cover group-hover:scale-110 duration-300' alt={items.title} draggable={false} />
+                                <img src={items.imgUrl} className='absolute w-full h-full top-0 left-0 object-cover group-hover:scale-110 duration-300 opacity-80' alt={items.title} draggable={false} />
                             </Link>
                             <p className='text-description text-xl max-lg:text-lg'>
                                 {items.description.map((desc) => (

@@ -8,6 +8,7 @@ import { Section3 } from '../components/organisms/landing/Section3';
 import { Section4 } from '../components/organisms/landing/Section4';
 import { Section5 } from '../components/organisms/landing/Section5';
 import { Section6 } from '../components/organisms/landing/Section6';
+import { Section7 } from '../components/organisms/landing/Section7';
 
 export const LandingPage = () => {
     useEffect(() => {
@@ -41,6 +42,7 @@ export const LandingPage = () => {
             <Section4 />
             <Section5 />
             <Section6 />
+            <Section7 />
         </div>
     )
 }

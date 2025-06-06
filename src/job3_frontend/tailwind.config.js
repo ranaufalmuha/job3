@@ -11,6 +11,9 @@ export default {
         "highlight": "#0052ff",
         "headlines": "#1d1d1f",
         "description": "#555e67",
+
+        "textHighlight": "#00d3fb",
+
       },
     },
   },
