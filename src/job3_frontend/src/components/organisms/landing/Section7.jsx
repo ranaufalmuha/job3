@@ -42,12 +42,13 @@ export const Section7 = () => {
                 <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-8">
                     <label className='hidden'>Comments</label>
                     {listContents.map((item, index) => (
-                        <div key={index} className="bg-highlight/10 p-8 rounded-xl flex flex-col justify-between gap-6">
+                        <div key={index} className="bg-highlight/10 p-8 rounded-xl flex flex-col justify-between gap-6 hover:scale-105 duration-300">
                             <p className='text-lg max-lg:text-base duration-300 text-description'>{'"' + item.comment + '"'}</p>
-                            <div className="flex gap-1">
+                            <div className="flex gap-1 text-headlines">
                                 {Array.from({ length: 5 }).map((_, starIndex) => (
                                     <img key={starIndex} src="./assets/star.png" className={`w-6 h-6 object-contain ${starIndex > item.stars ? "opacity-40" : ""}`} alt="" />
                                 ))}
+                                <span>{"(" + item.stars + ")"}</span>
                             </div>
                         </div>
                     ))}
