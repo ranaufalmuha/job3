@@ -1,0 +1,11 @@
+inside 
+padding :
+- 2
+- 4
+- 8
+
+
+Frontend canister via browser
+    job3_frontend: https://jr4tt-kiaaa-aaaap-an2la-cai.icp0.io/
+  Backend canister via Candid interface:
+    job3_backend: https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=jy7yp-4aaaa-aaaap-an2kq-cai
