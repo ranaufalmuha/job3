@@ -4,7 +4,7 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { PlusSignIcon } from '@hugeicons/core-free-icons';
 import { BackgroundBlur } from '../../atoms/BackgroundBlur';
 
-export const Section2 = () => {
+export const LandingSection2 = () => {
     const listContents = [
         {
             linkHref: "/",

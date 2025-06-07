@@ -1,7 +1,7 @@
 import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowUpRight01Icon, QrCodeIcon } from '@hugeicons/core-free-icons';
-export const Section1 = () => {
+export const LandingSection1 = () => {
     return (
         <section className='w-full h-screen text-white p-2'>
             <div className="bg-headlines w-full h-full rounded-xl px-8 py-14 flex justify-center relative overflow-hidden">

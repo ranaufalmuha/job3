@@ -2,7 +2,7 @@ import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { StarIcon } from '@hugeicons/core-free-icons';
 
-export const Section7 = () => {
+export const LandingSection7 = () => {
     const listContents = [
         {
             stars: 5,

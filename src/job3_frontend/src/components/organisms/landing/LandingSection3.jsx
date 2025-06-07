@@ -2,7 +2,7 @@ import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { WorkIcon, ArrowUpRight01Icon } from '@hugeicons/core-free-icons';
 
-export const Section3 = () => {
+export const LandingSection3 = () => {
     const listContents = [
         {
             title: "Lorem ipsum dolor sit amet.",

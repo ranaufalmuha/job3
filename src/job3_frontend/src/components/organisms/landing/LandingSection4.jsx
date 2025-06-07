@@ -3,7 +3,7 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { WorkIcon, ArrowUpRight01Icon } from '@hugeicons/core-free-icons';
 import { ButtonBlur } from '../../atoms/ButtonBlur';
 
-export const Section4 = () => {
+export const LandingSection4 = () => {
     const listContents = [
         {
             icon: WorkIcon,

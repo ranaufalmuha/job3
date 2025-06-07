@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export const Header = () => {
@@ -41,7 +42,7 @@ export const Header = () => {
 
             {/* navigation  */}
             <nav className="">
-                <button className={` text-white px-6 py-3 rounded-lg ${isScrolled ? "bg-headlines" : "bg-highlight"} duration-300`}>Authentication</button>
+                <Link to={"/login"} className={` text-white px-6 py-3 rounded-lg ${isScrolled ? "bg-headlines" : "bg-highlight"} duration-300`}>Authentication</Link>
             </nav>
         </header>
     )

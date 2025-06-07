@@ -2,14 +2,15 @@ import React, { useEffect } from 'react'
 
 import Lenis from "@studio-freight/lenis";
 
-import { Section1 } from '../components/organisms/landing/Section1'
-import { Section2 } from '../components/organisms/landing/Section2'
-import { Section3 } from '../components/organisms/landing/Section3';
-import { Section4 } from '../components/organisms/landing/Section4';
-import { Section5 } from '../components/organisms/landing/Section5';
-import { Section6 } from '../components/organisms/landing/Section6';
-import { Section7 } from '../components/organisms/landing/Section7';
-import { Section8 } from '../components/organisms/landing/Section8';
+import { LandingSection1 } from '../components/organisms/landing/LandingSection1'
+import { LandingSection2 } from '../components/organisms/landing/LandingSection2'
+import { LandingSection3 } from '../components/organisms/landing/LandingSection3';
+import { LandingSection4 } from '../components/organisms/landing/LandingSection4';
+import { LandingSection5 } from '../components/organisms/landing/LandingSection5';
+import { LandingSection6 } from '../components/organisms/landing/LandingSection6';
+import { LandingSection7 } from '../components/organisms/landing/LandingSection7';
+import { LandingSection8 } from '../components/organisms/landing/LandingSection8';
+import { LandingSection9 } from '../components/organisms/landing/LandingSection9';
 
 export const LandingPage = () => {
     useEffect(() => {
@@ -37,14 +38,15 @@ export const LandingPage = () => {
     }, []);
     return (
         <div>
-            <Section1 />
-            <Section2 />
-            <Section3 />
-            <Section4 />
-            <Section5 />
-            <Section6 />
-            <Section7 />
-            <Section8 />
+            <LandingSection1 />
+            <LandingSection2 />
+            <LandingSection3 />
+            <LandingSection4 />
+            <LandingSection5 />
+            <LandingSection6 />
+            <LandingSection7 />
+            <LandingSection8 />
+            <LandingSection9 />
         </div>
     )
 }

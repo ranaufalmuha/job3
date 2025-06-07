@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Section6 = () => {
+export const LandingSection6 = () => {
     const listContents = [
         {
             imgUrl: "https://content.nexo.com/logos/INATBA.svg",

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Add01Icon } from '@hugeicons/core-free-icons';
 
-export const Section8 = () => {
+export const LandingSection8 = () => {
     const listContents = [
         {
             question: "Lorem ipsum dolor sit amet?",

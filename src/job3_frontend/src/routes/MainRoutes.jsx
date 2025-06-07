@@ -6,6 +6,7 @@ import { createBrowserRouter } from 'react-router-dom';
 // Import Layouts
 import { MainLayout } from '../layouts/MainLayout';
 import HomeRoutes from './HomeRoutes';
+import { LoginPage } from '../pages/LoginPage';
 
 
 const MainRoutes = createBrowserRouter([
@@ -15,6 +16,10 @@ const MainRoutes = createBrowserRouter([
         children: [
             ...HomeRoutes,
         ]
+    },
+    {
+        path: "/login",
+        element: <LoginPage />
     },
     // status page
     // {
