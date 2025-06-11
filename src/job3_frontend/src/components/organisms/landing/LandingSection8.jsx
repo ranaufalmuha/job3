@@ -20,15 +20,15 @@ export const LandingSection8 = () => {
 
     const toggleIndex = (index) => {
         if (activeIndex === index) {
-            setActiveIndex(null); // klik ulang untuk tutup
+            setActiveIndex(null);
         } else {
-            setActiveIndex(index); // hanya satu yang aktif
+            setActiveIndex(index);
         }
     };
 
     return (
         <section className='px-8 py-24 flex justify-center duration-300'>
-            <div className="container duration-300 flex flex-col gap-20 rounded-xl">
+            <div className="w-[1300px] duration-300 flex flex-col gap-20 rounded-xl">
                 {/* head  */}
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-12">
                     <h2 className='text-5xl max-lg:text-3xl duration-300'>Frequently asked questions.</h2>

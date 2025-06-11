@@ -8,19 +8,19 @@ export const LandingSection2 = () => {
     const listContents = [
         {
             linkHref: "/",
-            imgUrl: "/images/landing1.webp",
-            title: "Browse Jobs",
+            imgUrl: "/images/landing/landing2.png",
+            title: "Publish Job",
             description: [
                 {
-                    text: "Open an account and earn up to",
+                    text: "Publish your opening, reach Web3's ",
                     isBold: false,
                 },
                 {
-                    text: "16% annually",
+                    text: "top talent,",
                     isBold: true,
                 },
                 {
-                    text: "on your digital assets.",
+                    text: "and manage applications seamlessly in one dashboard",
                     isBold: false,
 
                 },
@@ -28,20 +28,20 @@ export const LandingSection2 = () => {
         },
         {
             linkHref: "/",
-            imgUrl: "/images/landing1.webp",
+            imgUrl: "/images/landing/landing3.png",
             title: "Hire Talent",
             description: [
                 {
-                    text: "Exchange",
+                    text: "Connect with top-tier",
                     isBold: false,
 
                 },
                 {
-                    text: "100 assets",
+                    text: "professionals",
                     isBold: true,
                 },
                 {
-                    text: "and unlock liquidity with a crypto-backed Credit Line.",
+                    text: "to join your Web3 team.",
                     isBold: false,
 
                 },
@@ -49,19 +49,19 @@ export const LandingSection2 = () => {
         },
         {
             linkHref: "/",
-            imgUrl: "/images/landing1.webp",
-            title: "Discover Influencer",
+            imgUrl: "/images/landing/landing4.png",
+            title: "Discover KOLs",
             description: [
                 {
-                    text: "Spend without selling your digital assets and get up to",
+                    text: "Tap into influential KOL networks to ",
                     isBold: false,
                 },
                 {
-                    text: "2% cashback",
+                    text: "accelerate your project ",
                     isBold: true,
                 },
                 {
-                    text: "with the Nexo Card.",
+                    text: "growth.",
                     isBold: false,
 
                 },
@@ -70,8 +70,8 @@ export const LandingSection2 = () => {
     ]
     return (
         <section className='px-8 pb-24 pt-48 flex justify-center duration-300'>
-            <div className="container duration-300 flex flex-col gap-20">
-                <h2 className='text-5xl max-w-[800px] max-lg:text-3xl duration-300'>Build your portfolio from a single app, designed for the forward-thinking investor.</h2>
+            <div className="w-[1300px] duration-300 flex flex-col gap-20">
+                <h2 className='text-5xl max-w-[1000px] max-lg:text-3xl duration-300'>Job3 seamlessly connects your project with the brightest minds in Web3, driving real innovation and accelerating your next big breakthrough.</h2>
 
                 {/* contents  */}
                 <div className="grid grid-cols-3 max-md:grid-cols-1 gap-8 duration-300">

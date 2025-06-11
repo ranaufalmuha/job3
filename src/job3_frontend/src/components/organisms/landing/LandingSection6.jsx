@@ -25,7 +25,7 @@ export const LandingSection6 = () => {
     ]
     return (
         <section className='px-8 py-24 flex justify-center duration-300'>
-            <div className="container duration-300 flex flex-col gap-20 rounded-xl items-center">
+            <div className="w-[1300px] duration-300 flex flex-col gap-20 rounded-xl items-center">
                 {/* head  */}
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-8 w-full">
                     <h2 className='text-5xl max-lg:text-3xl duration-300'>Partner Awards</h2>

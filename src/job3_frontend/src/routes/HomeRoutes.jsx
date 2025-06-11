@@ -1,16 +1,17 @@
 import React from "react";
 
 import { LandingPage } from "../pages/LandingPage";
+import { BusinessPage } from "../pages/BusinessPage";
 
 const HomeRoutes = [
     {
         index: true,
         element: <LandingPage />,
     },
-    // {
-    //     path: "about_us",
-    //     element: <AboutUs />,
-    // },
+    {
+        path: "business",
+        element: <BusinessPage />,
+    },
 ];
 
 export default HomeRoutes;

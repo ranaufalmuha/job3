@@ -1,15 +1,16 @@
 import React from 'react'
 import { InputLogin } from '../components/atoms/InputLogin'
+import { Link } from 'react-router-dom'
 
 export const LoginPage = () => {
     return (
         <main className='w-full h-screen p-4 flex bg-black text-white gap-8'>
             <section className='w-2/5 h-full relative overflow-hidden rounded-xl group bg-headlines flex flex-col items-center p-8'>
-                <div className="flex items-center gap-2 z-10 ">
+                <Link to={"/"} className="flex hover:cursor-pointer items-center gap-2 z-10 ">
                     <img src="./logo/icon.svg" className="h-6" alt="" />
                     <label className='text-2xl'>Job3</label>
-                </div>
-                <img src="/images/landing1.webp" className='w-full h-full object-cover group-hover:scale-105 duration-300 absolute top-0 left-0 opacity-60' alt="" />
+                </Link>
+                <img src="/images/landing/landing4.png" className='w-full h-full object-cover group-hover:scale-105 duration-300 absolute top-0 left-0 opacity-60' alt="" />
             </section>
 
             {/* form  */}

@@ -31,7 +31,7 @@ export const LandingSection7 = () => {
     ]
     return (
         <section className='px-8 py-24 flex justify-center duration-300'>
-            <div className="container duration-300 flex flex-col gap-20 rounded-xl items-center">
+            <div className="w-[1300px] duration-300 flex flex-col gap-20 rounded-xl items-center">
                 {/* head  */}
                 <div className="w-full">
                     <h2 className='text-5xl max-lg:text-3xl max-md:w-full w-4/5 duration-300'>Our dedicated team is available seven days a week

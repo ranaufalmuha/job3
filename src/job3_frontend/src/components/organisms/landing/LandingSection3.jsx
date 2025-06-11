@@ -1,26 +1,26 @@
 import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
-import { WorkIcon, ArrowUpRight01Icon } from '@hugeicons/core-free-icons';
+import { WorkIcon, ArrowUpRight01Icon, UserAiIcon } from '@hugeicons/core-free-icons';
 
 export const LandingSection3 = () => {
     const listContents = [
         {
-            title: "Lorem ipsum dolor sit amet.",
-            description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, nulla? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, cupiditate.",
+            title: "I’m ready to build my career in Web3.",
+            description: "Browse curated Web3 job openings tailored to your skills, connect directly with hiring managers, and accelerate your career growth with real-time alerts and personalized recommendations across leading global blockchain projects.",
             icon: WorkIcon,
         },
         {
-            title: "Lorem ipsum dolor sit amet.",
-            description: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, nulla? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, cupiditate.",
-            icon: WorkIcon,
+            title: "I Want to Elevate My Influence as a KOL",
+            description: "Discover curated collaboration opportunities, connect with innovative projects, and leverage analytics to grow your audience and engagement.",
+            icon: UserAiIcon,
         }
     ]
     return (
         <section className='px-8 py-24 flex justify-center duration-300'>
-            <div className="container duration-300 flex flex-col gap-20 max-md:gap-14 bg-headlines text-white rounded-xl p-14">
+            <div className="w-[1300px] duration-300 flex flex-col gap-20 max-md:gap-14 bg-headlines text-white rounded-xl p-14">
                 {/* head  */}
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-12 max-md:gap-4">
-                    <h2 className='text-5xl max-lg:text-3xl duration-300'>Discover your next web3 journey.</h2>
+                    <h2 className='text-5xl max-lg:text-3xl duration-300'>Discover Your Next Web3 Career</h2>
                     <p className='text-lg'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, doloribus?</p>
                 </div>
 
