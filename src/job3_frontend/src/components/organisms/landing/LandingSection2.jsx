@@ -8,7 +8,7 @@ export const LandingSection2 = () => {
     const listContents = [
         {
             linkHref: "/",
-            imgUrl: "/images/landing/landing2.png",
+            imgUrl: "/images/landing/landing2.webp",
             title: "Publish Job",
             description: [
                 {
@@ -28,7 +28,7 @@ export const LandingSection2 = () => {
         },
         {
             linkHref: "/",
-            imgUrl: "/images/landing/landing3.png",
+            imgUrl: "/images/landing/landing3.webp",
             title: "Hire Talent",
             description: [
                 {
@@ -49,7 +49,7 @@ export const LandingSection2 = () => {
         },
         {
             linkHref: "/",
-            imgUrl: "/images/landing/landing4.png",
+            imgUrl: "/images/landing/landing4.webp",
             title: "Discover KOLs",
             description: [
                 {

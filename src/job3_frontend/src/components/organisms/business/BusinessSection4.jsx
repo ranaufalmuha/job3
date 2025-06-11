@@ -23,7 +23,7 @@ export const BusinessSection4 = () => {
                         </div>
                     </div>
                 </div>
-                <img src="/images/business/section1.png" className='top-0 left-0 absolute object-cover opacity-50 w-full h-full group-hover:scale-110 duration-300' alt="" />
+                <img src="/images/business/section1.webp" className='top-0 left-0 absolute object-cover opacity-50 w-full h-full group-hover:scale-110 duration-300' alt="" />
             </div>
         </section>
     )

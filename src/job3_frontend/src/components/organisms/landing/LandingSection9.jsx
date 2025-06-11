@@ -20,7 +20,7 @@ export const LandingSection9 = () => {
                         } />
                     </div>
                 </div>
-                <img src="/images/landing1.webp" className='top-0 left-0 absolute object-cover opacity-50 w-full h-full group-hover:scale-110 duration-300' alt="" />
+                <img src="/images/landing/landing1.webp" className='top-0 left-0 absolute object-cover opacity-50 w-full h-full group-hover:scale-110 duration-300' alt="" />
             </div>
         </section>
     )

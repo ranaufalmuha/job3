@@ -10,7 +10,7 @@ export const LoginPage = () => {
                     <img src="./logo/icon.svg" className="h-6" alt="" />
                     <label className='text-2xl'>Job3</label>
                 </Link>
-                <img src="/images/landing/landing4.png" className='w-full h-full object-cover group-hover:scale-105 duration-300 absolute top-0 left-0 opacity-60' alt="" />
+                <img src="/images/landing/landing4.webp" className='w-full h-full object-cover group-hover:scale-105 duration-300 absolute top-0 left-0 opacity-60' alt="" />
             </section>
 
             {/* form  */}

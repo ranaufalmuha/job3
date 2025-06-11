@@ -52,7 +52,7 @@ export const LandingSection1 = () => {
                     </div> */}
 
                 </div>
-                <img src="/images/landing/landing1.png" className='w-full h-full absolute top-0 left-0 object-cover opacity-70' alt="" />
+                <img src="/images/landing/landing1.webp" className='w-full h-full absolute top-0 left-0 object-cover opacity-70' alt="" />
                 <div className="bg-gradient-to-t from-headlines via-transparent to-headlines opacity-40 w-full h-full absolute top-0 left-0"></div>
             </div>
         </section>

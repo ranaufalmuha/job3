@@ -3,23 +3,23 @@ import React from 'react'
 export const LandingSection6 = () => {
     const listContents = [
         {
-            imgUrl: "https://content.nexo.com/logos/INATBA.svg",
+            imgUrl: "/images/company/INATBA.svg",
             companyName: "Lorem ipsum",
         },
         {
-            imgUrl: "https://content.nexo.com/logos/fintech-breakthrough-2025.png",
+            imgUrl: "/images/company/fintech-breakthrough-2025.webp",
             companyName: "Lorem ipsum",
         },
         {
-            imgUrl: "https://content.nexo.com/logos/forbes.svg",
+            imgUrl: "/images/company/forbes.svg",
             companyName: "Lorem ipsum",
         },
         {
-            imgUrl: "https://content.nexo.com/logos/stevie_award.svg",
+            imgUrl: "/images/company/stevie_award.svg",
             companyName: "Lorem ipsum",
         },
         {
-            imgUrl: "https://content.nexo.com/logos/silver-globee%20(1).png",
+            imgUrl: "/images/company/silver-globee.webp",
             companyName: "Lorem ipsum",
         },
     ]
