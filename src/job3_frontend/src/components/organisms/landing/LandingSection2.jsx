@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { PlusSignIcon } from '@hugeicons/core-free-icons';
 import { BackgroundBlur } from '../../atoms/BackgroundBlur';
+import { TitleH2 } from '../../atoms/TitleH2';
 
 export const LandingSection2 = () => {
     const listContents = [
@@ -71,7 +72,7 @@ export const LandingSection2 = () => {
     return (
         <section className='px-8 pb-24 pt-48 flex justify-center duration-300'>
             <div className="w-[1300px] duration-300 flex flex-col gap-20">
-                <h2 className='text-5xl max-w-[1000px] max-lg:text-3xl duration-300'>Job3 seamlessly connects your project with the brightest minds in Web3, driving real innovation and accelerating your next big breakthrough.</h2>
+                <TitleH2 text={"Job3 seamlessly connects your project with the brightest minds in Web3, accelerating your next big breakthrough."} />
 
                 {/* contents  */}
                 <div className="grid grid-cols-3 max-md:grid-cols-1 gap-8 duration-300">
@@ -88,8 +89,8 @@ export const LandingSection2 = () => {
                                 <img src={items.imgUrl} className='absolute w-full h-full top-0 left-0 object-cover group-hover:scale-110 duration-300 opacity-80' alt={items.title} draggable={false} />
                             </Link>
                             <p className='text-description text-xl max-lg:text-lg'>
-                                {items.description.map((desc) => (
-                                    <span className={`${desc.isBold ? "text-headlines base-bold" : ""}`}>
+                                {items.description.map((desc, i) => (
+                                    <span key={i} className={`${desc.isBold ? "text-headlines base-bold" : ""}`}>
                                         {" " + desc.text + " "}
                                     </span>
                                 ))}

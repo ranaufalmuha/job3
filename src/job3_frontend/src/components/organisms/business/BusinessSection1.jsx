@@ -1,6 +1,7 @@
 import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowUpRight01Icon, QrCodeIcon } from '@hugeicons/core-free-icons';
+import { Link } from 'react-router-dom';
 
 export const BusinessSection1 = () => {
     return (
@@ -10,7 +11,7 @@ export const BusinessSection1 = () => {
                 <div className="w-[1300px] flex max-md:flex-col gap-12 max-md:gap-8 duration-300 max-md:items-center px-8 pt-8">
 
                     <div className="w-[60%] max-md:w-full">
-                        <h1 className='text-6xl max-xl:text-5xl max-md:text-4xl duration-300'>Build your dream team and accelerate your project</h1>
+                        <h1 className='text-6xl/tight max-xl:text-5xl/tight max-md:text-4xl/tight duration-300'>Build your dream team and accelerate your project</h1>
                     </div>
 
                     {/* Actions  */}
@@ -18,11 +19,11 @@ export const BusinessSection1 = () => {
                         <p className='text-xl max-xl:text-lg duration-300 text-description'>Connect with top Web3 talent and KOLs—streamline collaboration, manage engagements end-to-end, and accelerate innovation.</p>
                         <div className="flex flex-col max-w-[400px] gap-4">
                             <div className="grid grid-cols-5 gap-4">
-                                <button className="col-span-4 w-full bg-headlines text-white flex p-4 rounded-lg text-xl max-xl:text-lg items-center justify-between hover:bg-headlines/80 duration-300">
+                                <Link to={"/login"} className="col-span-4 w-full bg-headlines text-white flex p-4 rounded-lg text-xl max-xl:text-lg items-center justify-between hover:bg-headlines/80 duration-300">
                                     <p>Sign up</p>
                                     <HugeiconsIcon icon={ArrowUpRight01Icon} />
 
-                                </button>
+                                </Link>
                                 <button className=" border border-white/20 p-2 rounded-lg justify-center items-center flex aspect-square backdrop-blur-sm bg-headlines/10">
                                     <HugeiconsIcon icon={QrCodeIcon} className='w-9 h-9' />
                                 </button>

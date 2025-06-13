@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Add01Icon } from '@hugeicons/core-free-icons';
+import { TitleH2 } from '../../atoms/TitleH2';
 
 export const LandingSection8 = () => {
     const listContents = [
@@ -31,7 +32,7 @@ export const LandingSection8 = () => {
             <div className="w-[1300px] duration-300 flex flex-col gap-20 rounded-xl">
                 {/* head  */}
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-12">
-                    <h2 className='text-5xl max-lg:text-3xl duration-300'>Frequently asked questions.</h2>
+                    <TitleH2 text={"Frequently asked questions."} />
                     <div className=" flex flex-col gap-8">
                         {listContents.map((item, index) => (
                             <div key={index} className="border-b pb-6 flex w-full gap-4 group hover:cursor-pointer" onClick={() => toggleIndex(index)}>

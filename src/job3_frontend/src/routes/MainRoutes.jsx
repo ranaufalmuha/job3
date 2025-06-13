@@ -1,15 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 // Import route segments
-
+import HomeRoutes from './HomeRoutes';
 
 // Import Layouts
 import { MainLayout } from '../layouts/MainLayout';
-import HomeRoutes from './HomeRoutes';
 import { LoginPage } from '../pages/LoginPage';
+import { SignupPage } from '../pages/SignupPage';
 
 
-const MainRoutes = createBrowserRouter([
+export const MainRoutes = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
@@ -21,11 +21,8 @@ const MainRoutes = createBrowserRouter([
         path: "/login",
         element: <LoginPage />
     },
-    // status page
-    // {
-    //     path: "/404",
-    //     element: <NotFound404 />
-    // },
+    {
+        path: "/signup",
+        element: <SignupPage />
+    },
 ]);
-
-export default MainRoutes;

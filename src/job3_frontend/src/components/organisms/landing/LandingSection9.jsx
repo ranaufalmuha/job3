@@ -2,13 +2,15 @@ import React from 'react'
 import { ButtonBlur } from '../../atoms/ButtonBlur'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { ArrowUpRight01Icon } from '@hugeicons/core-free-icons';
+import { TitleH2 } from '../../atoms/TitleH2';
 
 export const LandingSection9 = () => {
     return (
         <section className='px-8 py-24 flex justify-center duration-300'>
             <div className="max-w-[2400px] w-full relative overflow-hidden flex justify-center rounded-xl group px-14 py-28 bg-headlines">
-                <div className="container duration-300 flex flex-col gap-8 max-lg:gap-4 text-white  justify-center">
-                    <h2 className='text-5xl max-lg:text-3xl duration-300 z-10 max-w-[600px]'>Serving clients since 2018.</h2>
+                <div className="container duration-300 flex flex-col gap-8 max-lg:gap-4 text-white justify-center">
+                    <TitleH2 text={"Serving clients since 2018."} className={"z-10 max-w-[600px]"} />
+
                     <p className='text-lg max-lg:text-base duration-300 z-10 max-w-[600px]'>Individuals, businesses, and institutions rely on us to help grow their digital asset portfolios.</p>
                     <div className="h-24"></div>
                     <div className='z-10'>

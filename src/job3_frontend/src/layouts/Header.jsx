@@ -42,20 +42,20 @@ export const Header = () => {
                 {/* Links  */}
                 <ul className='flex gap-6 duration-300'>
                     <li className='hover:scale-105 duration-300'>
-                        <a href="" >About Us</a>
+                        <Link to="" >About Us</Link>
                     </li>
                     <li className='hover:scale-105 duration-300'>
-                        <a href="" >Careers</a>
+                        <Link to="" >Careers</Link>
                     </li>
                     <li className='hover:scale-105 duration-300'>
-                        <a href="/business" >Business</a>
+                        <Link to="/business" >Business</Link>
                     </li>
                 </ul>
 
                 {/* navigation  */}
                 <nav className="flex gap-4 items-center">
                     <Link to={"/login"} className={`rounded-lg duration-300 px-2 ${isHeaderDark() ? "text-headlines" : "text-white"}`}>Log in</Link>
-                    <Link to={"/login"} className={` text-white px-6 py-2 rounded-lg bg-highlight duration-300`}>Sign up</Link>
+                    <Link to={"/signup"} className={` text-white px-6 py-2 rounded-lg bg-highlight duration-300`}>Sign up</Link>
                 </nav>
             </div>
         </header>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { StarIcon } from '@hugeicons/core-free-icons';
+import { TitleH2 } from '../../atoms/TitleH2';
 
 export const LandingSection7 = () => {
     const listContents = [
@@ -34,8 +35,8 @@ export const LandingSection7 = () => {
             <div className="w-[1300px] duration-300 flex flex-col gap-20 rounded-xl items-center">
                 {/* head  */}
                 <div className="w-full">
-                    <h2 className='text-5xl max-lg:text-3xl max-md:w-full w-4/5 duration-300'>Our dedicated team is available seven days a week
-                        to provide personal assistance.</h2>
+                    <TitleH2 text={"Our dedicated team is available seven days a week to provide personal assistance."} className='max-md:w-full w-4/5' />
+
                 </div>
 
                 {/* content  */}

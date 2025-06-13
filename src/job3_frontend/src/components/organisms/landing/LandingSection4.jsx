@@ -2,6 +2,7 @@ import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { GlobeIcon, ArrowUpRight01Icon, CheckmarkBadge01Icon, AiMagicIcon, SentIcon, Idea01Icon, WorkflowSquare03Icon } from '@hugeicons/core-free-icons';
 import { ButtonBlur } from '../../atoms/ButtonBlur';
+import { TitleH2 } from '../../atoms/TitleH2';
 
 export const LandingSection4 = () => {
     const listContents = [
@@ -41,7 +42,8 @@ export const LandingSection4 = () => {
             <div className="w-[1300px] duration-300 flex flex-col gap-20 rounded-xl">
                 {/* head  */}
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-8">
-                    <h2 className='text-5xl max-lg:text-3xl duration-300'>Why Choose Job3?</h2>
+                    <TitleH2 text={"Why Choose Job3?"} />
+
                     <div className=" flex flex-col gap-6">
                         <p className='text-xl max-lg:text-lg duration-300 text-description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, doloribus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam fuga dolorem neque delectus ex ullam quia error omnis quasi exercitationem!</p>
                         <div >

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import './index.scss';
-import MainRoutes from './routes/MainRoutes';
+import { MainRoutes } from './routes/MainRoutes';
 
 // Create a root wrapper component
 const Root = () => {

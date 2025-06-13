@@ -17,8 +17,8 @@ export const LoginPage = () => {
             <section className='w-3/5 flex justify-center items-center'>
                 <form action="" className='bg-headlines p-6 rounded-lg flex flex-col gap-6 max-w-[500px] w-full'>
                     <h1 className='text-2xl'>Login</h1>
-                    <InputLogin type={"email"} name={"Email"} />
-                    <InputLogin type={"password"} name={"Password"} />
+                    <InputLogin type={"email"} name={"email"} placeholder={"Enter your Email"} />
+                    <InputLogin type={"password"} name={"password"} placeholder={"Enter your Password"} />
                     <button className='bg-highlight p-3 rounded-md'>Log in</button>
                     <div className="flex items-center">
                         <hr className='border-white/10 w-full' />
@@ -34,6 +34,10 @@ export const LoginPage = () => {
                             <img src="/others/nfid.avif" alt="" className='w-4 h-4' />
                             <span>Log in with NFID</span>
                         </button>
+                    </div>
+                    <div className="flex text-sm justify-center gap-1 text-white/50">
+                        <p>Don't have a Job3 account?</p>
+                        <Link to={"/signup"} className='text-white'>Sign up</Link>
                     </div>
                 </form>
             </section>

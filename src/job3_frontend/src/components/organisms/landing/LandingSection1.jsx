@@ -2,6 +2,7 @@ import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowUpRight01Icon, QrCodeIcon } from '@hugeicons/core-free-icons';
 import { Link } from 'react-router-dom';
+
 export const LandingSection1 = () => {
     return (
         <section className='w-full h-screen text-white p-2'>
@@ -12,8 +13,8 @@ export const LandingSection1 = () => {
 
                     {/* mid  */}
                     <div className="flex flex-col gap-8 duration-300 max-md:items-center">
-                        <h1 className='text-6xl max-w-[700px] max-md:text-center duration-300'>Building Your Dream Team</h1>
-                        <p className='text-xl max-md:text-center duration-300'>Finding perfect talent and influencers for your Web3 projects</p>
+                        <h1 className='text-6xl/tight max-w-[700px] max-md:text-center duration-300'>Building Your Dream Team</h1>
+                        <p className='text-xl max-md:text-center duration-300'>Finding perfect talent and Influencer for your Web3 projects</p>
 
                         {/* Actions  */}
                         <div className="flex flex-col max-w-[400px] gap-4">

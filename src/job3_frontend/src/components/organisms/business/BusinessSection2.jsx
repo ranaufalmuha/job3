@@ -1,6 +1,7 @@
 import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Certificate01Icon, DashboardBrowsingIcon, UserSwitchIcon, RoadLocation01Icon, ZoomInAreaIcon, AnalysisTextLinkIcon } from '@hugeicons/core-free-icons';
+import { TitleH2 } from '../../atoms/TitleH2';
 export const BusinessSection2 = () => {
     const listContents = [
         {
@@ -34,7 +35,7 @@ export const BusinessSection2 = () => {
             {/* top  */}
             <div className="w-[1300px] flex flex-col duration-300 max-md:items-center gap-20 ">
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-8">
-                    <h2 className='text-5xl max-lg:text-3xl duration-300 max-w-[500px]'>How we help your project grow.</h2>
+                    <TitleH2 text={"How we help your project grow."} className="max-w-[500px]" />
                     <div className=" flex flex-col gap-6 justify-center">
                         <p className='text-xl max-lg:text-lg duration-300 text-description'>Connect with top Web3 talent and KOLs—streamline collaboration, manage engagements end-to-end, and accelerate innovation</p>
                     </div>

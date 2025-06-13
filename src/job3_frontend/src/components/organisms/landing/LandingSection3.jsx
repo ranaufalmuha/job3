@@ -1,6 +1,7 @@
 import React from 'react'
 import { HugeiconsIcon } from '@hugeicons/react';
 import { WorkIcon, ArrowUpRight01Icon, UserAiIcon } from '@hugeicons/core-free-icons';
+import { TitleH2 } from '../../atoms/TitleH2';
 
 export const LandingSection3 = () => {
     const listContents = [
@@ -20,7 +21,7 @@ export const LandingSection3 = () => {
             <div className="w-[1300px] duration-300 flex flex-col gap-20 max-md:gap-14 bg-headlines text-white rounded-xl p-14">
                 {/* head  */}
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-12 max-md:gap-4">
-                    <h2 className='text-5xl max-lg:text-3xl duration-300'>Discover Your Next Web3 Career</h2>
+                    <TitleH2 text={"Discover Your Next Web3 Career"} />
                     <p className='text-lg'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, doloribus?</p>
                 </div>
 
