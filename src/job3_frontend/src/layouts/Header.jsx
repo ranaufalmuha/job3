@@ -45,7 +45,7 @@ export const Header = () => {
                         <Link to="" >About Us</Link>
                     </li>
                     <li className='hover:scale-105 duration-300'>
-                        <Link to="" >Careers</Link>
+                        <Link to="/jobs" >Find Work</Link>
                     </li>
                     <li className='hover:scale-105 duration-300'>
                         <Link to="/business" >Business</Link>

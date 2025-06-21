@@ -1,7 +1,8 @@
 import React from "react";
-
 import { LandingPage } from "../pages/LandingPage";
 import { BusinessPage } from "../pages/BusinessPage";
+import { JobPage } from "../pages/app/JobPage";
+import { JobLayout } from "../layouts/job/JobLayout";
 
 const HomeRoutes = [
     {
@@ -11,6 +12,16 @@ const HomeRoutes = [
     {
         path: "business",
         element: <BusinessPage />,
+    },
+    {
+        path: "jobs",
+        element: <JobLayout />,
+        children: [
+            {
+                index: true,
+                element: <JobPage />
+            },
+        ]
     },
 ];
 
