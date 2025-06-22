@@ -14,8 +14,8 @@ export const SalarySliderComponent = ({ minSalary = 100, maxSalary = 5000, step 
     };
 
     return (
-        <div className="flex flex-col gap-3">
-            <h3 className="text-lg">Salary</h3>
+        <section aria-labelledby="salary-range" className="flex flex-col gap-3">
+            <h3 id="salary-range" className="text-lg">Salary</h3>
             <div className="flex items-center gap-2 mb-1">
                 <span className="text-sm">${range.min.toLocaleString()}</span>
                 <span className="flex-1 h-0.5 bg-gray-200 rounded mx-2" />
@@ -47,6 +47,6 @@ export const SalarySliderComponent = ({ minSalary = 100, maxSalary = 5000, step 
                 <span>Min: ${minSalary.toLocaleString()}</span>
                 <span>Max: ${maxSalary.toLocaleString()}</span>
             </div>
-        </div>
+        </section>
     );
 };

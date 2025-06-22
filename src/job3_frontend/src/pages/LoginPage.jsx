@@ -34,6 +34,10 @@ export const LoginPage = () => {
                             <img src="/others/nfid.avif" alt="" className='w-4 h-4' />
                             <span>Log in with NFID</span>
                         </button>
+                        <button className='bg-white/10 p-3 rounded-md flex items-center gap-2 justify-center'>
+                            <img src="/logo/icp.webp" alt="" className='w-4 h-4' />
+                            <span>Log in with Internet Identity</span>
+                        </button>
                     </div>
                     <div className="flex text-sm justify-center gap-1 text-white/50">
                         <p>Don't have a Job3 account?</p>

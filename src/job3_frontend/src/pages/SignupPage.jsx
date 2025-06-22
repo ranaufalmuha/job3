@@ -6,10 +6,10 @@ import { UserIcon, Building03Icon } from '@hugeicons/core-free-icons';
 
 export const SignupPage = () => {
 
-    const [optionValue, setOptionValue] = useState("personal")
+    const [optionValue, setOptionValue] = useState("job-seeker")
     const options = [
-        { value: "personal", label: "Personal Account", icon: UserIcon, },
-        { value: "company", label: "Company Account", icon: Building03Icon, },
+        { value: "job-seeker", label: "Job Seeker", icon: UserIcon, },
+        { value: "company", label: "Company", icon: Building03Icon, },
     ];
 
     return (
@@ -40,7 +40,7 @@ export const SignupPage = () => {
                     <InputLogin type={"email"} name={"email"} placeholder={"Enter your Email"} />
                     <button className='bg-highlight p-3 rounded-md'>Continue</button>
 
-                    <div className={`flex flex-col gap-6 overflow-hidden duration-300 ${optionValue === "personal" ? "max-h-96" : "max-h-0"}`}>
+                    <div className={`flex flex-col gap-6 overflow-hidden duration-300 ${optionValue === "job-seeker" ? "max-h-96" : "max-h-0"}`}>
                         <div className="flex items-center">
                             <hr className='border-white/10 w-full' />
                             <span className='text-[0.6rem] border py-1 px-2 rounded-full border-white/10 text-white/50'>OR</span>
@@ -54,6 +54,10 @@ export const SignupPage = () => {
                             <button className='bg-white/10 p-3 rounded-md flex items-center gap-2 justify-center'>
                                 <img src="/others/nfid.avif" alt="" className='w-4 h-4' />
                                 <span>Continue with NFID</span>
+                            </button>
+                            <button className='bg-white/10 p-3 rounded-md flex items-center gap-2 justify-center'>
+                                <img src="/logo/icp.webp" alt="" className='w-4 h-4' />
+                                <span>Continue with Internet Identity</span>
                             </button>
                         </div>
                     </div>
