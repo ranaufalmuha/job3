@@ -7,7 +7,7 @@ export const JobPage = () => {
         <div className='text-black flex w-full h-full '>
 
             <div className="flex flex-col w-full ">
-                <div className="pb-8 flex flex-col gap-1">
+                <div className="pb-8 px-6 flex flex-col gap-1">
                     <h1 className='base-bold text-2xl '>Discover your next Web3 journey.</h1>
                 </div>
 

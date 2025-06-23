@@ -41,6 +41,11 @@ export const Header = () => {
                     title: "Job List",
                     href: "jobs",
                     desc: "All available jobs"
+                },
+                {
+                    title: "Company List",
+                    href: "company",
+                    desc: "All available company"
                 }
             ]
         },
@@ -52,6 +57,16 @@ export const Header = () => {
                     title: "Corporate Accounts",
                     href: "business",
                     desc: "For your business"
+                },
+                {
+                    title: "Partnership",
+                    href: "business",
+                    desc: "Let's work together"
+                },
+                {
+                    title: "Bulk Hiring",
+                    href: "business",
+                    desc: "Hire fast at scale"
                 },
                 {
                     title: "Partnership",
@@ -131,7 +146,7 @@ export const Header = () => {
 
                     {/* mega dropdown modal */}
                     <div className={`w-full transition-all overflow-hidden duration-300 border border-description/10 ${hoveredMenu ? "opacity-100 translate-y-0 max-h-screen" : "opacity-0 max-h-0 pointer-events-none"} flex justify-center `}>
-                        <div className="max-w-[1300px] flex justify-center">
+                        <div className="max-w-[1400px] flex justify-center">
 
                             {/* Explain  */}
                             <div className="min-w-80  p-10 flex flex-col gap-2">
@@ -147,7 +162,7 @@ export const Header = () => {
 
                                 {/* card  */}
                                 {MENU_LIST[menuIndex].submenu.map((item, i) => (
-                                    <Link key={i} to={"/" + item.href} onClick={handleMouseLeaveAll} className="flex gap-4 w-96 hover:bg-black/10 p-4 rounded-lg items-start duration-300">
+                                    <Link key={i} to={"/" + item.href} onClick={handleMouseLeaveAll} className="flex gap-4 w-80 hover:bg-black/10 p-4 rounded-lg items-start duration-300">
                                         <HugeiconsIcon icon={Briefcase06Icon} className='w-9' />
                                         <div className="flex flex-col gap-1">
                                             <h3 >{item.title}</h3>
