@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const JobDetailPage = () => {
     return (
-        <div className="px-6 py-28 flex justify-center">
+        <div className="px-6 py-28 flex justify-center text-lg">
 
             <div className="max-w-[1300px] flex flex-col gap-8 w-full">
 

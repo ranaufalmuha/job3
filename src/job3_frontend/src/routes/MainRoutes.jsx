@@ -7,6 +7,8 @@ import HomeRoutes from './HomeRoutes';
 import { MainLayout } from '../layouts/MainLayout';
 import { LoginPage } from '../pages/LoginPage';
 import { SignupPage } from '../pages/SignupPage';
+import { AuthPage } from '../pages/AuthPage';
+import { CreateUserPage } from '../pages/user/CreateUserPage';
 
 
 export const MainRoutes = createBrowserRouter([
@@ -16,6 +18,14 @@ export const MainRoutes = createBrowserRouter([
         children: [
             ...HomeRoutes,
         ]
+    },
+    {
+        path: "/auth",
+        element: <AuthPage />
+    },
+    {
+        path: "/create-user",
+        element: <CreateUserPage />
     },
     {
         path: "/login",

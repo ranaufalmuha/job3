@@ -8,6 +8,8 @@ import { CompanyLayout } from "../layouts/company/CompanyLayout";
 import { CompanyAbout } from "../pages/app/company/CompanyAbout";
 import { CompanyJobs } from "../pages/app/company/CompanyJobs";
 import { Company } from "../pages/app/company/Company";
+import { ProfileUserPage } from "../pages/user/ProfileUserPage";
+import ProtectedRoute from "../contexts/ProtectedRoute";
 
 const HomeRoutes = [
     {
@@ -17,6 +19,15 @@ const HomeRoutes = [
     {
         path: "business",
         element: <BusinessPage />,
+    },
+
+    {
+        path: "profile",
+        element: (
+            <ProtectedRoute>
+                <ProfileUserPage />
+            </ProtectedRoute>
+        ),
     },
 
     // Jobs 
