@@ -20,7 +20,15 @@ module CompanyServiceModule {
       companyId = companyId;
       companyName = createCompanyData.companyName;
       email = createCompanyData.email;
-      password = createCompanyData.password;
+      industry = null; // Web3, NFT, Protocol, dsb
+      location = createCompanyData.location;
+      website = null;
+      companyLogo = null;
+      aboutUs = null;
+      whatWeDo = null;
+      culture = null;
+      social = null;
+      jobPreferences = null;
     };
 
     companies.put(companyId, companyNewData);

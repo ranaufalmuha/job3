@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     const [authClient, setAuthClient] = useState(null);
     const [error, setError] = useState(null);
 
+
     const createAuthenticatedActor = async (identity) => {
         try {
             const config = isDevelopment ? CONFIG.development : CONFIG.production;

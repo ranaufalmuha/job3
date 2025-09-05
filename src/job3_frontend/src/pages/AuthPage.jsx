@@ -10,6 +10,8 @@ export const AuthPage = () => {
 
     // Redirect jika sudah authenticated
     useEffect(() => {
+        console.log(process.env.DFX_NETWORK)
+
         if (isAuthenticated) {
             navigate('/create-user'); // atau route yang sesuai
         }

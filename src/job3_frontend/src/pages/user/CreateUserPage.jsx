@@ -84,15 +84,14 @@ export const CreateUserPage = () => {
         try {
             let res;
             if (isCompany) {
-                // Motoko: CreateCompany = { email; companyName; password }
                 res = await authenticatedActor.createCompany({
                     email: email,
                     companyName: companyName,
+                    location: location,
                 });
             } else {
-                // Motoko: CreateUser = { email; password; fullName; location }
                 res = await authenticatedActor.createUser({
-                    email,
+                    email: email,
                     fullName: fullName,
                     location: location,
                     jobTitle: jobTitle,
@@ -174,14 +173,6 @@ export const CreateUserPage = () => {
                                 value={jobTitle}
                                 onChange={(e) => setJobTitle(e.target.value)}
                             />
-
-                            <CountrySelector
-                                id={"country-selector"}
-                                open={isOpen}
-                                onToggle={() => setIsOpen(!isOpen)}
-                                onChange={setLocation}
-                                selectedValue={COUNTRIES.find((option) => option.value === location)}
-                            />
                         </>
                     )}
 
@@ -196,6 +187,14 @@ export const CreateUserPage = () => {
                             />
                         </>
                     )}
+
+                    <CountrySelector
+                        id={"country-selector"}
+                        open={isOpen}
+                        onToggle={() => setIsOpen(!isOpen)}
+                        onChange={setLocation}
+                        selectedValue={COUNTRIES.find((option) => option.value === location)}
+                    />
 
                     {errMsg && <p className="text-sm text-red-400">{errMsg}</p>}
 
