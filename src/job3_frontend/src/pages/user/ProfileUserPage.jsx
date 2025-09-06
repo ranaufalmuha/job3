@@ -13,6 +13,7 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { fromOpt, optFromList, optFromStr, someOrNone, strFromOpt } from '../../utils/candidOpt';
 import { monthYearFromNs } from '../../utils/dates';
 import GeneralInfoComponent from '../../components/organisms/user/GeneralInfoComponent';
+import { ModalComponent } from '../../components/molecules/ModalComponent';
 
 /** ===================== Helpers ===================== **/
 
@@ -28,23 +29,6 @@ const SectionHeader = ({ title, onEdit }) => (
     </div>
 );
 
-/** ===================== Reusable Modal ===================== **/
-const Modal = ({ open, title, children, onClose }) => {
-    if (!open) return null;
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-            <div className="absolute inset-0 bg-black/60" onClick={onClose} />
-            <div className="relative w-full max-w-2xl rounded-xl bg-white border border-black/10 shadow-xl overflow-y-auto overscroll-contain max-h-[85vh] overflow-hidden">
-                <div className="flex items-center justify-between px-5 py-4 border-b border-black/10">
-                    <h3 className="text-lg base-bold">{title}</h3>
-                    <button className="opacity-70 hover:opacity-100" onClick={onClose}>✕</button>
-                </div>
-                <div className="p-4">{children}</div>
-            </div>
-        </div>
-    );
-};
-
 
 /** ===================== Page ===================== **/
 export const ProfileUserPage = () => {
@@ -52,7 +36,7 @@ export const ProfileUserPage = () => {
     const [user, setUser] = useState(null);
     const [loadingUser, setLoadingUser] = useState(true);
     const [err, setErr] = useState("");
-    const [editor, setEditor] = useState(null); // 'summary' | 'work' | 'projects' | null
+    const [editor, setEditor] = useState(null);
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
@@ -333,15 +317,15 @@ export const ProfileUserPage = () => {
             </div>
 
             {/* ===== Modals ===== */}
-            <Modal
+            <ModalComponent
                 open={editor === 'general'}
                 title="Edit General Info"
                 onClose={() => setEditor(null)}
             >
                 <GeneralInfoComponent initial={user} submitting={saving} onSubmit={handleSaveGeneral} />
-            </Modal>
+            </ModalComponent>
 
-            <Modal
+            <ModalComponent
                 open={editor === 'summary'}
                 title="Edit Professional Summary"
                 onClose={() => setEditor(null)}
@@ -351,9 +335,9 @@ export const ProfileUserPage = () => {
                     submitting={saving}
                     onSubmit={handleSaveSummary}
                 />
-            </Modal>
+            </ModalComponent>
 
-            <Modal
+            <ModalComponent
                 open={editor === 'work'}
                 title="Edit Work Experiences"
                 onClose={() => setEditor(null)}
@@ -363,9 +347,9 @@ export const ProfileUserPage = () => {
                     submitting={saving}
                     onSubmit={handleSaveWork}
                 />
-            </Modal>
+            </ModalComponent>
 
-            <Modal
+            <ModalComponent
                 open={editor === 'projects'}
                 title="Edit Projects"
                 onClose={() => setEditor(null)}
@@ -375,7 +359,7 @@ export const ProfileUserPage = () => {
                     submitting={saving}
                     onSubmit={handleSaveProjects}
                 />
-            </Modal>
+            </ModalComponent>
         </div>
     );
 };

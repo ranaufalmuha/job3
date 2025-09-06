@@ -3,6 +3,7 @@ import Time "mo:base/Time";
 module {
   public type UserId = Principal;
   public type CompanyId = Principal;
+  public type JobId = Nat;
   public type Timestamp = Time.Time;
 
   // For uniform error handling

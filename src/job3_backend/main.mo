@@ -7,6 +7,7 @@ import UserTypes "types/UserTypes";
 import UserService "services/UserService";
 import CompanyTypes "types/CompanyTypes";
 import CompanyService "services/CompanyService";
+import Handler "Handler";
 
 persistent actor Job3 {
   // TYPES ==========================================================
@@ -37,11 +38,18 @@ persistent actor Job3 {
   };
 
   //  ===============================================================
+  // General ========================================================
+  //  ===============================================================
+  public shared (msg) func getAccountType() : async { #none; #user; #company } {
+    Handler.Handler().getAccountType(msg.caller, users, companies);
+  };
+
+  //  ===============================================================
   // User ===========================================================
   //  ===============================================================
   // create
   public shared (msg) func createUser(createUserData : UserTypes.CreateUser) : async ApiResponse<UserType> {
-    UserService.createUser(users, msg.caller, createUserData);
+    UserService.createUser(users, companies, msg.caller, createUserData);
   };
 
   // update
@@ -70,20 +78,8 @@ persistent actor Job3 {
     UserService.getUserByPrincipalId(users, userId);
   };
 
-  // public query func getUserByUsername(username : Text) : async ApiResponse<UserType> {
-  //   UserService.getUserByUsername(users, username);
-  // };
-
   // public shared (msg) func getUserData() : async ApiResponse<UserType> {
   //   UserService.getUserByPrincipalId(users, msg.caller);
-  // };
-
-  // public query func getUsersByPrefixWithLimit(prefix : Text, limit : Nat) : async ApiResponse<[UserType]> {
-  //   UserService.getUsersByPrefixWithLimit(users, prefix, limit);
-  // };
-
-  // public func getIsUsernameValid(username : Text) : async ApiResponse<Bool> {
-  //   UserService.getIsUsernameValid(users, username);
   // };
 
   //  ===============================================================
@@ -91,6 +87,24 @@ persistent actor Job3 {
   //  ===============================================================
   // create
   public shared (msg) func createCompany(createCompanyData : CompanyTypes.CreateCompany) : async ApiResponse<CompanyType> {
-    CompanyService.createCompany(companies, msg.caller, createCompanyData);
+    CompanyService.createCompany(companies, users, msg.caller, createCompanyData);
+  };
+
+  // GET
+  public query func getCompanyByPrincipalId(companyId : Core.CompanyId) : async ApiResponse<CompanyType> {
+    CompanyService.getCompanyByPrincipalId(companies, companyId);
+  };
+
+  // UPDATE
+  public shared (msg) func updateCompanyOverview(updateCompanyData : CompanyTypes.CompanyOverview) : async ApiResponse<CompanyType> {
+    CompanyService.updateCompanyOverview(companies, msg.caller, updateCompanyData);
+  };
+
+  public shared (msg) func updateCompanyWhatWeDo(updateCompanyData : ?Text) : async ApiResponse<CompanyType> {
+    CompanyService.updateCompanyWhatWeDo(companies, msg.caller, updateCompanyData);
+  };
+
+  public shared (msg) func updateCompanyCulture(updateCompanyData : ?Text) : async ApiResponse<CompanyType> {
+    CompanyService.updateCompanyCulture(companies, msg.caller, updateCompanyData);
   };
 };

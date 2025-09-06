@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export const CompanyHeader = () => {
 
     const items = [
-        { label: "About", href: "/company/dfinity/about" },
-        { label: "Jobs", href: "/company/dfinity/jobs" },
+        { label: "About", href: "/profile/company/dfinity/about" },
+        { label: "Jobs", href: "/profile/company/dfinity/jobs" },
     ];
 
     const stars = 4;
@@ -22,9 +22,23 @@ export const CompanyHeader = () => {
                 <span className='text-lg'>{"(" + stars + ") total rating from 67 reviews"}</span>
             </div>
 
-            <nav className='text-xl flex gap-6  border-b-2'>
-                <Link to={"/company/dfinity/about"} className='py-3 border-b-4 text-highlight border-highlight '>About</Link>
-                <Link to={"/company/dfinity/jobs"} className='py-3 '>Jobs</Link>
+            {/* Tabs */}
+            <nav className="text-xl flex gap-6 border-b-2">
+                {items.map((item, idx) => (
+                    <NavLink
+                        key={idx}
+                        to={item.href}
+                        end
+                        className={({ isActive }) =>
+                            `py-3 border-b-4 transition-colors ${isActive
+                                ? "text-highlight border-highlight"
+                                : "text-black border-transparent hover:text-highlight"
+                            }`
+                        }
+                    >
+                        {item.label}
+                    </NavLink>
+                ))}
             </nav>
 
         </div>

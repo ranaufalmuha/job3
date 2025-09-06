@@ -101,12 +101,12 @@ export const CreateUserPage = () => {
             // Jika canister pakai variant { #ok(...) } | { #err(...) }
             if (res?.ok || (res && res.ok !== undefined)) {
                 // beberapa candid tools map ke { ok, err }
-                navigate(isCompany ? '/company/profile' : '/profile');
+                navigate(isCompany ? '/profile' : '/profile');
             } else if (res?.err) {
                 setErrMsg(typeof res.err === "string" ? res.err : "Failed to create.");
             } else {
                 // fallback
-                navigate(isCompany ? '/company/profile' : '/profile');
+                navigate(isCompany ? '/profile' : '/profile');
             }
         } catch (error) {
             console.error("❌ create failed:", error);

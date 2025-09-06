@@ -12,21 +12,35 @@ module CompanyTypesModule {
     location : Text;
   };
 
+  public type CompanyOverview = {
+    website : ?Text;
+    industry : ?Text; // Web3, NFT, Protocol, dsb
+    specialties : ?Text;
+    companySize : ?Text;
+    location : Text;
+    aboutUs : ?Text;
+  };
+
   public type Company = {
     companyId : Core.CompanyId;
     email : Text;
     companyName : Text;
-    industry : ?Text; // Web3, NFT, Protocol, dsb
     location : Text;
     website : ?Text;
     companyLogo : ?Text;
 
+    companyAbout : ?CompanyAbout;
+    social : ?SocialLinks;
+    jobPreferences : ?[JobPreference];
+  };
+
+  public type CompanyAbout = {
+    industry : ?Text; // Web3, NFT, Protocol, dsb
+    specialties : ?Text;
+    companySize : ?Text;
     aboutUs : ?Text;
     whatWeDo : ?Text;
     culture : ?Text;
-
-    social : ?SocialLinks;
-    jobPreferences : ?[JobPreference];
   };
 
   public type SocialLinks = {

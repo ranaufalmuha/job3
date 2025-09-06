@@ -12,7 +12,7 @@ const CONFIG = {
         // HILANGKAN #authorize dari URL!
         identityProvider: process.env.CANISTER_ID_INTERNET_IDENTITY
             ? `http://${process.env.CANISTER_ID_INTERNET_IDENTITY}.localhost:4943`
-            : "http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943"
+            : `http://uzt4z-lp777-77774-qaabq-cai.localhost:4943`
     },
     production: {
         host: "https://icp-api.io",

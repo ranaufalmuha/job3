@@ -5,11 +5,13 @@ import { JobPage } from "../pages/app/JobPage";
 import { JobLayout } from "../layouts/job/JobLayout";
 import { JobDetailPage } from "../pages/app/JobDetailPage";
 import { CompanyLayout } from "../layouts/company/CompanyLayout";
-import { CompanyAbout } from "../pages/app/company/CompanyAbout";
-import { CompanyJobs } from "../pages/app/company/CompanyJobs";
-import { Company } from "../pages/app/company/Company";
-import { ProfileUserPage } from "../pages/user/ProfileUserPage";
+import { CompanyAbout } from "../pages/company/CompanyAbout";
+import { CompanyJobs } from "../pages/company/CompanyJobs";
+import { Company } from "../pages/company/Company";
 import ProtectedRoute from "../contexts/ProtectedRoute";
+import { ProfileGate } from "../pages/ProfileGate";
+import { ProfileUserPage } from "../pages/user/ProfileUserPage";
+import { CompanyProfilePage } from "../pages/company/CompanyProfilePage";
 
 const HomeRoutes = [
     {
@@ -25,9 +27,27 @@ const HomeRoutes = [
         path: "profile",
         element: (
             <ProtectedRoute>
-                <ProfileUserPage />
+                <ProfileGate />
             </ProtectedRoute>
         ),
+        children: [
+            {
+                path: "user",
+                element: (
+                    <ProtectedRoute require="user">
+                        <ProfileUserPage />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "company",
+                element: (
+                    <ProtectedRoute require="company">
+                        <CompanyProfilePage />
+                    </ProtectedRoute>
+                ),
+            },
+        ],
     },
 
     // Jobs 

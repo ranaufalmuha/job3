@@ -1,5 +1,7 @@
 import UserTypes "../types/UserTypes";
 import Core "../Core";
+import Handler "../Handler";
+import CompanyTypes "../types/CompanyTypes";
 
 module {
   type UserType = UserTypes.User;
@@ -8,12 +10,14 @@ module {
   // CREATE
   public func createUser(
     users : UserTypes.UsersHashMap,
+    companies : CompanyTypes.CompaniesHashMap,
     userId : Core.UserId,
     createUserData : UserTypes.CreateUser,
   ) : ApiResponse<UserType> {
-    switch (users.get(userId)) {
-      case (?_) { return #err(#AlreadyExists("This user already exists")) };
-      case (null) {};
+
+    switch (Handler.Handler().isUserAlreadyExists(userId, users, companies)) {
+      case (true) { return #err(#AlreadyExists("This user already exists")) };
+      case (false) {};
     };
 
     let userNewData : UserType = {
