@@ -111,8 +111,8 @@ export const ProfileUserPage = () => {
 
     // socialHandle: [] | [record]
     const sh = fromOpt(user?.socialHandle, null);
-    const discord = sh ? strFromOpt(sh.discord, '') : '';
-    const telegram = sh ? strFromOpt(sh.telegram, '') : '';
+    const discord = sh ? strFromOpt(sh.discord, '-') : '-';
+    const telegram = sh ? strFromOpt(sh.telegram, '-') : '-';
 
     // ===== Submit Handlers =====
 
@@ -244,8 +244,8 @@ export const ProfileUserPage = () => {
                     <section className='flex flex-col gap-3'>
                         <UrlComponent icon={Mail01Icon} url={email} />
                         <UrlComponent icon={Location01Icon} url={location} />
-                        <UrlComponent icon={DiscordIcon} url={user?.socialHandle?.discord ?? '-'} />
-                        <UrlComponent icon={TelegramIcon} url={user?.socialHandle?.telegram ?? '-'} />
+                        <UrlComponent icon={DiscordIcon} url={discord} />
+                        <UrlComponent icon={TelegramIcon} url={telegram} />
                     </section>
                 </div>
 

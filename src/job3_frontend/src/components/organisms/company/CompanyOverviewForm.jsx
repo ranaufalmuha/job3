@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { COUNTRIES } from "../../../lib/countries";
 import CountrySelector from "../../atoms/CountrySelector";
 import { fromOpt, optFromStr } from "../../../utils/candidOpt";
@@ -13,9 +13,34 @@ export const CompanyOverviewForm = ({ initial, submitting, onSubmit }) => {
     const [website, setWebsite] = useState(fromOpt(initial?.website, ""));
     const [industry, setIndustry] = useState(about ? fromOpt(about.industry, "") : "");
     const [specialties, setSpecialties] = useState(about ? fromOpt(about.specialties, "") : "");
-    const [companySize, setCompanySize] = useState(about ? fromOpt(about.companySize, "") : "");
+    // const [companySize, setCompanySize] = useState(about ? fromOpt(about.companySize, "") : "");
+    const rawCompanySize = about ? fromOpt(about.companySize, "") : "";
     const [location, setLocation] = useState(initial?.location || "");
     const [aboutUs, setAboutUs] = useState(about ? fromOpt(about.aboutUs, "") : "");
+    const OTHER_VALUE = "OTHER";
+    const COMPANY_SIZES = [
+        { value: "Myself only", label: "Myself only" },
+        { value: "2–10 employees", label: "2–10 employees" },
+        { value: "11–50 employees", label: "11–50 employees" },
+        { value: "51–200 employees", label: "51–200 employees" },
+        { value: "201–500 employees", label: "201–500 employees" },
+        { value: "501–1,000 employees", label: "501–1,000 employees" },
+        { value: "1,001–5,000 employees", label: "1,001–5,000 employees" },
+        { value: "5,001–10,000 employees", label: "5,001–10,000 employees" },
+        { value: "10,001+ employees", label: "10,001+ employees" },
+    ];
+
+    const isPreset = useMemo(
+        () => COMPANY_SIZES.some(o => o.value === rawCompanySize),
+        [rawCompanySize]
+    );
+
+    const [companySizeChoice, setCompanySizeChoice] = useState(
+        isPreset ? rawCompanySize : (rawCompanySize ? OTHER_VALUE : "")
+    );
+    const [companySizeCustom, setCompanySizeCustom] = useState(
+        isPreset ? "" : rawCompanySize
+    );
 
     const [err, setErr] = useState("");
 
@@ -28,11 +53,15 @@ export const CompanyOverviewForm = ({ initial, submitting, onSubmit }) => {
             return;
         }
 
+        const finalCompanySize =
+            companySizeChoice === OTHER_VALUE ? companySizeCustom : companySizeChoice;
+
+
         onSubmit({
             website: optFromStr(website),
             industry: optFromStr(industry),
             specialties: optFromStr(specialties),
-            companySize: optFromStr(companySize),
+            companySize: optFromStr(finalCompanySize),
             location: (location || "").trim(), // required (Text)
             aboutUs: optFromStr(aboutUs),
         });
@@ -79,15 +108,33 @@ export const CompanyOverviewForm = ({ initial, submitting, onSubmit }) => {
                     />
                 </label>
 
-                <label className="grid gap-1">
+                <div className="grid gap-1">
                     <span className="text-sm opacity-80">Company Size</span>
-                    <input
-                        value={companySize}
-                        onChange={(e) => setCompanySize(e.target.value)}
+                    <select
+                        value={companySizeChoice}
+                        onChange={(e) => {
+                            const v = e.target.value;
+                            setCompanySizeChoice(v);
+                            if (v !== OTHER_VALUE) setCompanySizeCustom("");
+                        }}
                         className="bg-black/5 border border-black/10 rounded-md px-3 py-2"
-                        placeholder="11–50 / 51–200 / 1000+ ..."
-                    />
-                </label>
+                    >
+                        <option value="">— Select company size —</option>
+                        {COMPANY_SIZES.map((o) => (
+                            <option key={o.value} value={o.value}>{o.label}</option>
+                        ))}
+                        <option value={OTHER_VALUE}>Other…</option>
+                    </select>
+
+                    {companySizeChoice === OTHER_VALUE && (
+                        <input
+                            value={companySizeCustom}
+                            onChange={(e) => setCompanySizeCustom(e.target.value)}
+                            className="bg-black/5 border border-black/10 rounded-md px-3 py-2"
+                            placeholder="e.g., 12–15, micro team, etc."
+                        />
+                    )}
+                </div>
             </div>
 
             {/* Specialties */}

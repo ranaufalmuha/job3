@@ -7,11 +7,12 @@ import { JobDetailPage } from "../pages/app/JobDetailPage";
 import { CompanyLayout } from "../layouts/company/CompanyLayout";
 import { CompanyAbout } from "../pages/company/CompanyAbout";
 import { CompanyJobs } from "../pages/company/CompanyJobs";
-import { Company } from "../pages/company/Company";
+import { Companies } from "../pages/company/Companies";
 import ProtectedRoute from "../contexts/ProtectedRoute";
 import { ProfileGate } from "../pages/ProfileGate";
 import { ProfileUserPage } from "../pages/user/ProfileUserPage";
 import { CompanyProfilePage } from "../pages/company/CompanyProfilePage";
+import { ViewCompanyProfile } from "../pages/company/ViewCompanyProfile";
 
 const HomeRoutes = [
     {
@@ -62,35 +63,21 @@ const HomeRoutes = [
         ]
     },
     {
-        path: "/jobs/:company_name/:id",
+        path: "/jobs/:companyId/:id",
         element: <JobDetailPage />
     },
 
     // Company 
     {
-        path: "company",
+        path: "companies",
         children: [
             {
                 index: true,
-                element: <Company />
+                element: <Companies />
             },
             {
-                path: ":company_name",
-                element: <CompanyLayout />,
-                children: [
-                    {
-                        index: true,
-                        element: <CompanyAbout />
-                    },
-                    {
-                        path: "about",
-                        element: <CompanyAbout />
-                    },
-                    {
-                        path: "jobs",
-                        element: <CompanyJobs />
-                    }
-                ]
+                path: ":companyId",
+                element: <ViewCompanyProfile />,
             },
 
         ]

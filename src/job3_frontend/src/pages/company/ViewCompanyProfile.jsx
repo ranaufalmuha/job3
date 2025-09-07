@@ -12,7 +12,7 @@ import { CompanyCulture } from "./CompanyCulture";
 // ---------- Tab Content Components ----------
 
 // ---------- Main Page ----------
-export const CompanyProfilePage = () => {
+export const ViewCompanyProfile = () => {
     const { authenticatedActor, principal } = useAuth();
     const [company, setCompany] = useState(null);
     const [loadingCompany, setLoadingCompany] = useState(true);
@@ -87,7 +87,7 @@ export const CompanyProfilePage = () => {
         () => [
             { key: "about", label: "About", component: <CompanyAbout company={company} onUpdated={(c) => setCompany(c)} /> },
             { key: "culture", label: "Life and Culture", component: <CompanyCulture company={company} onUpdated={(c) => setCompany(c)} /> },
-            { key: "jobs", label: "Jobs", component: <CompanyJobs company={company} companyId={company?.companyId} /> },
+            { key: "jobs", label: "Jobs", component: <CompanyJobs companyId={company?.companyId} company={company} /> },
             // { key: "settings", label: "Settings", component: <SettingsTab /> },
         ],
         [company]
@@ -115,7 +115,7 @@ export const CompanyProfilePage = () => {
                     className="w-16 h-16 aspect-square object-cover rounded-md"
                     alt="Company logo"
                 />
-                <h1 className="text-3xl font-bold">{company.companyName ? company.companyName : ""}</h1>
+                <h1 className="text-3xl font-bold">{company?.companyName || ""}</h1>
 
                 <div className="flex gap-1 text-headlines items-center">
                     {Array.from({ length: 5 }).map((_, i) => (

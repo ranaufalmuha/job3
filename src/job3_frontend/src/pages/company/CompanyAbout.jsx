@@ -102,10 +102,10 @@ export const CompanyAbout = ({ company, onUpdated }) => {
         <div className="text-lg flex flex-col gap-8">
             <section className="flex flex-col gap-6">
                 <SectionHeader title="Company Overview" onEdit={() => setEditor("overview")} />
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 capitalize">
                     <Row label="Website">
                         {website !== "-" ? (
-                            <Link to={website} className="text-highlight underline">
+                            <Link to={website} className="text-highlight underline lowercase">
                                 {website}
                             </Link>
                         ) : (

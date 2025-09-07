@@ -3,8 +3,8 @@ import React from "react";
 
 const LoadingPage = () => {
     return (
-        <div className="h-screen w-full flex justify-center items-center bg-black text-white">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/10 backdrop-blur-sm z-50 text-white">
+            <img src="./logo/primary.png" className="w-28 animate-pulse" alt="" />
         </div>
     );
 };

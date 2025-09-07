@@ -2,6 +2,7 @@ import CompanyTypes "../types/CompanyTypes";
 import Core "../Core";
 import UserTypes "../types/UserTypes";
 import Handler "../Handler";
+import Iter "mo:base/Iter";
 module CompanyServiceModule {
 
   type CompanyType = CompanyTypes.Company;
@@ -44,6 +45,12 @@ module CompanyServiceModule {
       case (null) { #err(#NotFound("Company not found")) };
       case (?existing) { #ok(existing) };
     };
+  };
+
+  public func getAllCompany(
+    companies : CompanyTypes.CompaniesHashMap
+  ) : ApiResponse<[CompanyType]> {
+    #ok(Iter.toArray<CompanyType>(companies.vals()));
   };
 
   // UPDATE

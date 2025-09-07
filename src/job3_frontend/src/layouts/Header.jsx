@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Principal } from '@dfinity/principal';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Briefcase06Icon, ArrowUpRight01Icon } from '@hugeicons/core-free-icons';
+import { Briefcase06Icon } from '@hugeicons/core-free-icons';
 import { useAuth } from '../contexts/AuthContext';
 import { fromOpt } from '../utils/candidOpt';
 
@@ -13,20 +13,14 @@ export const Header = () => {
     const [menuIndex, setMenuIndex] = useState(0);
     const [hoveredMenu, setHoveredMenu] = useState(false);
 
-    // state untuk profil user
-    const [avatarUrl, setAvatarUrl] = useState('');
-    const [fullName, setFullName] = useState('');
-    const [loadingUser, setLoadingUser] = useState(false);
+    // state untuk profil (bisa user/company)
+    const [avatarUrl, setAvatarUrl] = useState(''); // plain string
+    const [displayName, setDisplayName] = useState(''); // fullName / companyName
+    const [loadingProfile, setLoadingProfile] = useState(false);
     const [avatarOpen, setAvatarOpen] = useState(false);
     const avatarRef = useRef(null);
 
-
     const location = useLocation();
-
-    const formatPrincipal = (p) => {
-        if (!p) return '';
-        return `${p.slice(0, 5)}...${p.slice(-3)}`;
-    };
 
     const initialsFromName = (name) => {
         if (!name) return 'U';
@@ -35,81 +29,94 @@ export const Header = () => {
     };
 
     const handleLogout = async () => {
-        try {
-            await logout();
-        } catch (error) {
-            console.error('Logout failed:', error);
-        }
+        try { await logout(); } catch (e) { console.error('Logout failed:', e); }
     };
 
     const MENU_LIST = [
         {
             name: 'About Us',
             description: 'Learn about us...',
-            submenu: [
-                { title: 'About Us', href: '', desc: 'Company history...' },
-            ]
+            submenu: [{ title: 'About Us', href: '', desc: 'Company history...' }],
         },
         {
             name: 'Find Work',
             description: 'Find your dream job...',
             submenu: [
                 { title: 'Job List', href: 'jobs', desc: 'All available jobs' },
-                { title: 'Company List', href: 'company', desc: 'All available company' },
-            ]
+                { title: 'Company List', href: 'companies', desc: 'All available company' },
+            ],
         },
         {
             name: 'Business',
             description: 'Solutions for companies',
-            submenu: [
-                { title: 'Corporate Accounts', href: 'business', desc: 'For your business' },
-            ]
+            submenu: [{ title: 'Corporate Accounts', href: 'business', desc: 'For your business' }],
         },
     ];
 
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 0);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        const onScroll = () => setIsScrolled(window.scrollY > 0);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     const isHeaderDark = () => isScrolled || location.pathname !== '/';
+    function handleMouseLeaveAll() { setHoveredMenu(false); }
 
-    function handleMouseLeaveAll() {
-        setHoveredMenu(false);
-    }
-
-    // Fetch user untuk ambil avatar & nama
+    // === Ambil profile photo + nama dari akun (user/company) ===
     useEffect(() => {
         let alive = true;
         (async () => {
             if (!principal || !authenticatedActor) {
                 setAvatarUrl('');
-                setFullName('');
+                setDisplayName('');
                 return;
             }
-            setLoadingUser(true);
+            setLoadingProfile(true);
             try {
                 const pid = typeof principal === 'string' ? Principal.fromText(principal) : principal;
-                const res = await authenticatedActor.getUserByPrincipalId(pid);
-                if (!alive) return;
 
-                if (res && 'ok' in res) {
-                    const u = res.ok;
-                    const photo = fromOpt(u?.profilePicture, '') || '';
-                    setAvatarUrl(photo); // bisa URL atau dataURL
-                    setFullName(u?.fullName || '');
+                // 1) tanya tipe akun
+                const kind = await authenticatedActor.getAccountType(); // { user:null } | { company:null } | { none:null }
+
+                // 2) fetch sesuai tipe
+                if (kind && typeof kind === 'object') {
+                    if ('user' in kind) {
+                        const res = await authenticatedActor.getUserByPrincipalId(pid);
+                        if (!alive) return;
+                        if (res?.ok) {
+                            const u = res.ok;
+                            setAvatarUrl(fromOpt(u.profilePicture, '') || '');
+                            setDisplayName(u.fullName || '');
+                        } else {
+                            setAvatarUrl('');
+                            setDisplayName('');
+                        }
+                    } else if ('company' in kind) {
+                        const res = await authenticatedActor.getCompanyByPrincipalId(pid);
+                        if (!alive) return;
+                        if (res?.ok) {
+                            const c = res.ok;
+                            setAvatarUrl(fromOpt(c.companyLogo, '') || '');
+                            setDisplayName(c.companyName || '');
+                        } else {
+                            setAvatarUrl('');
+                            setDisplayName('');
+                        }
+                    } else {
+                        // none
+                        setAvatarUrl('');
+                        setDisplayName('');
+                    }
                 } else {
-                    // kalau NOT_FOUND atau error lain, biarkan default
                     setAvatarUrl('');
-                    setFullName('');
+                    setDisplayName('');
                 }
             } catch (e) {
-                console.warn('Header: failed to fetch user', e);
+                console.warn('Header: failed to fetch profile', e);
                 setAvatarUrl('');
-                setFullName('');
+                setDisplayName('');
             } finally {
-                if (alive) setLoadingUser(false);
+                if (alive) setLoadingProfile(false);
             }
         })();
         return () => { alive = false; };
@@ -166,32 +173,25 @@ export const Header = () => {
                                             className="flex items-center gap-2"
                                             aria-label="Open profile menu"
                                         >
-                                            {/* <span className={`${hoveredMenu || isScrolled ? 'text-description' : 'text-white'}`}>
-                                                {formatPrincipal(principal)}
-                                            </span> */}
-
                                             {/* Avatar circle */}
                                             {avatarUrl ? (
                                                 <img
-                                                    src={fromOpt(avatarUrl, '') || '/logo/loading.png'}
-
-                                                    alt={fullName || 'User'}
+                                                    src={avatarUrl || '/logo/loading.png'}  // <-- pakai string langsung
+                                                    alt={displayName || 'User'}
                                                     className="w-8 h-8 rounded-full object-cover border border-black/10"
                                                 />
                                             ) : (
                                                 <div className="w-8 h-8 rounded-full bg-black/10 text-xs flex items-center justify-center base-bold">
-                                                    {initialsFromName(fullName)}
+                                                    {initialsFromName(displayName)}
                                                 </div>
                                             )}
-
-
                                         </button>
 
                                         {/* Dropdown */}
                                         {avatarOpen && (
                                             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md border border-black/10 shadow-lg overflow-hidden z-50">
                                                 <div className="px-3 py-2 text-sm text-black/70 truncate">
-                                                    {fullName || 'Anonymous'}
+                                                    {displayName || 'Anonymous'}
                                                 </div>
                                                 <div className="border-t border-black/10" />
                                                 <Link
