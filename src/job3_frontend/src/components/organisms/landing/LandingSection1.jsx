@@ -19,18 +19,18 @@ export const LandingSection1 = () => {
                         {/* Actions  */}
                         <div className="flex flex-col max-w-[400px] gap-4">
                             <div className="grid grid-cols-5 gap-4">
-                                <Link to={"/login"} className="col-span-4 w-full bg-highlight flex p-4 rounded-lg text-xl items-center justify-between">
+                                <Link to={"/auth"} className="col-span-4 w-full bg-highlight hover:bg-headlines duration-300 flex p-4 rounded-lg text-xl items-center justify-between group">
                                     <p>Sign up</p>
-                                    <HugeiconsIcon icon={ArrowUpRight01Icon} />
+                                    <HugeiconsIcon icon={ArrowUpRight01Icon} className='group-hover:scale-125 duration-300' />
 
                                 </Link>
-                                <button className="border border-white/20 p-2 rounded-lg justify-center items-center flex aspect-square backdrop-blur-sm bg-headlines/10">
+                                <div className="border border-white/20 p-2 rounded-lg justify-center items-center flex aspect-square backdrop-blur-sm bg-headlines/10">
                                     <HugeiconsIcon icon={QrCodeIcon} className='w-9 h-9' />
-                                </button>
+                                </div>
                             </div>
-                            <button className="col-span-5 w-full flex p-4 relative overflow-hidden border border-white/20 text-start text-sm rounded-lg backdrop-blur-sm bg-headlines/10">
+                            <div className="col-span-5 w-full flex p-4 relative overflow-hidden border border-white/20 text-start text-sm rounded-lg backdrop-blur-sm bg-headlines/10">
                                 <p >Unlock your career with job 3, more than <span className='base-bold'>$1,000,000</span> job available. <span className='text-textHighlight'>Discover Job3 Membership {"->"}</span></p>
-                            </button>
+                            </div>
                         </div>
                     </div>
 

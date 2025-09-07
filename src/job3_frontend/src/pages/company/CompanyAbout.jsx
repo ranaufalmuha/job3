@@ -9,7 +9,7 @@ import { Edit03Icon } from "@hugeicons/core-free-icons";
 import { CompanyOverviewForm } from "../../components/organisms/company/CompanyOverviewForm";
 import { CompanyTextAreaForm } from "../../components/organisms/company/CompanyTextAreaForm";
 
-export const CompanyAbout = ({ company, onUpdated }) => {
+export const CompanyAbout = ({ company, onUpdated, readOnly = false }) => {
     const { authenticatedActor } = useAuth();
 
     // Local copy supaya UI langsung update setelah save
@@ -40,7 +40,7 @@ export const CompanyAbout = ({ company, onUpdated }) => {
     const SectionHeader = ({ title, onEdit }) => (
         <div className="flex items-center gap-2">
             <h2 className="text-2xl base-bold">{title}</h2>
-            {onEdit && (
+            {!readOnly && onEdit && (
                 <button
                     onClick={onEdit}
                     className="text-sm p-2 rounded-md bg-transparent hover:bg-black/5 transition"
@@ -101,7 +101,7 @@ export const CompanyAbout = ({ company, onUpdated }) => {
     return (
         <div className="text-lg flex flex-col gap-8">
             <section className="flex flex-col gap-6">
-                <SectionHeader title="Company Overview" onEdit={() => setEditor("overview")} />
+                <SectionHeader title="Company Overview" onEdit={!readOnly ? () => setEditor("overview") : undefined} />
                 <div className="flex flex-col gap-4 capitalize">
                     <Row label="Website">
                         {website !== "-" ? (
@@ -121,7 +121,7 @@ export const CompanyAbout = ({ company, onUpdated }) => {
             </section>
 
             <section className="flex flex-col gap-6">
-                <SectionHeader title="What We Do?" onEdit={() => setEditor("whatWeDo")} />
+                <SectionHeader title="What We Do?" onEdit={!readOnly ? () => setEditor("whatWeDo") : undefined} />
                 <p className="text-description">
                     {whatWeDo || "No description yet."}
                 </p>

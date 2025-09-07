@@ -4,24 +4,14 @@ import { TitleH2 } from '../../atoms/TitleH2'
 export const LandingSection6 = () => {
     const listContents = [
         {
-            imgUrl: "/images/company/INATBA.svg",
-            companyName: "Lorem ipsum",
+            imgUrl: "https://icoanalytics.org/wp-content/uploads/2022/05/Dfinity-Foundation.png",
+            companyName: "Dfinity",
+            height: "h-24",
         },
         {
-            imgUrl: "/images/company/fintech-breakthrough-2025.webp",
-            companyName: "Lorem ipsum",
-        },
-        {
-            imgUrl: "/images/company/forbes.svg",
-            companyName: "Lorem ipsum",
-        },
-        {
-            imgUrl: "/images/company/stevie_award.svg",
-            companyName: "Lorem ipsum",
-        },
-        {
-            imgUrl: "/images/company/silver-globee.webp",
-            companyName: "Lorem ipsum",
+            imgUrl: "https://media.licdn.com/dms/image/v2/D4E12AQHsS6XMqbSpMg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1705657521210?e=2147483647&v=beta&t=_nImvcgLjcLEAgInBR-gURyjRLJRxn7C3xbV6WU10mI",
+            companyName: "Internet Computer",
+            height: "h-14",
         },
     ]
     return (
@@ -29,14 +19,14 @@ export const LandingSection6 = () => {
             <div className="w-[1300px] duration-300 flex flex-col gap-20 rounded-xl items-center">
                 {/* head  */}
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-8 w-full">
-                    <TitleH2 text={"Partner Awards"} />
+                    <TitleH2 text={"Partner"} />
 
                 </div>
 
                 {/* content  */}
-                <div className="flex flex-wrap gap-8">
+                <div className="flex flex-wrap gap-12 items-center justify-center">
                     {listContents.map((item, index) => (
-                        <img key={index} src={item.imgUrl} className='w-32 hover:scale-105 duration-300' draggable={false} alt="" />
+                        <img key={index} src={item.imgUrl} className={`${item.height ? item.height : "h-24"} hover:scale-105 duration-300 object-contain`} draggable={false} alt="" />
                     ))}
                 </div>
             </div>

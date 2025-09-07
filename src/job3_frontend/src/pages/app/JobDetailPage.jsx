@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
 import { fromOpt } from "../../utils/candidOpt";
 import { timeAgoFromNs } from "../../utils/dates";
+import { job3_backend } from "./../../../../declarations/job3_backend/index.js";
 
 // helpers
 const variantLabel = (v, fb = "-") =>
@@ -25,39 +25,38 @@ const slugify = (t) =>
 
 export const JobDetailPage = () => {
     const { id: idParam } = useParams(); // /jobs/:company_name/:id
-    const { authenticatedActor } = useAuth();
 
     const [job, setJob] = useState(null);
     const [company, setCompany] = useState(null);
 
     // fetch job
     useEffect(() => {
-        if (!authenticatedActor || !idParam) return;
+        if (!job3_backend || !idParam) return;
         let alive = true;
         (async () => {
             try {
                 const jobId = BigInt(idParam);
-                const res = await authenticatedActor.getJobById(jobId);
+                const res = await job3_backend.getJobById(jobId);
                 if (!alive) return;
                 if (res?.ok) setJob(res.ok);
             } catch { }
         })();
         return () => { alive = false; };
-    }, [authenticatedActor, idParam]);
+    }, [job3_backend, idParam]);
 
     // fetch company
     useEffect(() => {
-        if (!authenticatedActor || !job?.companyId) return;
+        if (!job3_backend || !job?.companyId) return;
         let alive = true;
         (async () => {
             try {
-                const res = await authenticatedActor.getCompanyByPrincipalId(job.companyId);
+                const res = await job3_backend.getCompanyByPrincipalId(job.companyId);
                 if (!alive) return;
                 if (res?.ok) setCompany(res.ok);
             } catch { }
         })();
         return () => { alive = false; };
-    }, [authenticatedActor, job]);
+    }, [job3_backend, job]);
 
     // derived display
     const companyName = company?.companyName || "-";

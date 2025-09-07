@@ -21,6 +21,13 @@ module CompanyTypesModule {
     aboutUs : ?Text;
   };
 
+  public type UpdateCompanyGeneral = {
+    email : Text;
+    companyName : Text;
+    companyLogo : ?Text;
+    social : ?SocialLinks;
+  };
+
   public type Company = {
     companyId : Core.CompanyId;
     email : Text;
@@ -45,7 +52,7 @@ module CompanyTypesModule {
 
   public type SocialLinks = {
     linkedIn : ?Text;
-    twitter : ?Text;
+    x : ?Text;
     telegram : ?Text;
     discord : ?Text;
     github : ?Text;

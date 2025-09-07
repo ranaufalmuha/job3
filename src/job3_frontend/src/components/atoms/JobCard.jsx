@@ -23,13 +23,6 @@ const formatSalary = (optSalary) => {
     return pp.length ? pp.join(" – ") : cur || "-";
 };
 
-const slugify = (t) =>
-    (t || "")
-        .toLowerCase()
-        .trim()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
-
 export const JobCard = ({ job, company }) => {
     if (!job) return null;
 
@@ -40,7 +33,7 @@ export const JobCard = ({ job, company }) => {
     const salary = formatSalary(job.salary);
     const jobType = variantLabel(job.jobType);
     const idStr = job.jobId?.toString?.() ?? "";
-    const href = `/jobs/${slugify(companyName)}/${idStr}`;
+    const href = `/jobs/${company?.companyId}/${idStr}`;
 
     return (
         <Link to={href} className="w-full border border-description/10 rounded-lg">

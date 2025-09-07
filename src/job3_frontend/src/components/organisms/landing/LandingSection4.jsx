@@ -3,6 +3,7 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { GlobeIcon, ArrowUpRight01Icon, CheckmarkBadge01Icon, AiMagicIcon, SentIcon, Idea01Icon, WorkflowSquare03Icon } from '@hugeicons/core-free-icons';
 import { ButtonBlur } from '../../atoms/ButtonBlur';
 import { TitleH2 } from '../../atoms/TitleH2';
+import { Link } from 'react-router-dom';
 
 export const LandingSection4 = () => {
     const listContents = [
@@ -46,14 +47,14 @@ export const LandingSection4 = () => {
 
                     <div className=" flex flex-col gap-6">
                         <p className='text-xl max-lg:text-lg duration-300 text-description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, doloribus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam fuga dolorem neque delectus ex ullam quia error omnis quasi exercitationem!</p>
-                        <div >
+                        <Link to={'/business'} >
                             <ButtonBlur className='p-4 rounded-lg hover:bg-black hover:text-white' items={
                                 <div className="flex gap-8">
                                     <span>Read more</span>
                                     <HugeiconsIcon icon={ArrowUpRight01Icon} className='w-6 h-6' />
                                 </div>
                             } />
-                        </div>
+                        </Link>
                     </div>
                 </div>
 

@@ -300,7 +300,7 @@ const JobForm = ({ companyId, submitting, onSubmit }) => {
 };
 
 // ====== Main component ======
-export const CompanyJobs = ({ company, companyId }) => {
+export const CompanyJobs = ({ company, companyId, readOnly = false }) => {
     const { authenticatedActor } = useAuth();
     const [jobs, setJobs] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -356,12 +356,15 @@ export const CompanyJobs = ({ company, companyId }) => {
         <div className="text-lg">
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold">Recently posted jobs</h2>
-                <button
-                    onClick={() => setOpen(true)}
-                    className="px-4 py-2 rounded-md bg-highlight/90 hover:bg-highlight text-white"
-                >
-                    Post a job
-                </button>
+                {!readOnly && (
+
+                    <button
+                        onClick={() => setOpen(true)}
+                        className="px-4 py-2 rounded-md bg-highlight/90 hover:bg-highlight text-white"
+                    >
+                        Post a job
+                    </button>
+                )}
             </div>
 
             {jobs?.length ? (

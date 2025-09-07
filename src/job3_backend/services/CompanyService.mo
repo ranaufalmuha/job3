@@ -54,6 +54,30 @@ module CompanyServiceModule {
   };
 
   // UPDATE
+  public func updateCompanyGeneral(
+    companies : CompanyTypes.CompaniesHashMap,
+    companyId : Core.CompanyId,
+    updateCompanyData : CompanyTypes.UpdateCompanyGeneral,
+  ) : ApiResponse<CompanyType> {
+    switch (companies.get(companyId)) {
+      case (null) {
+        return #err(#NotFound("Company not found, You Need to Create Account"));
+      };
+      case (?existing) {
+        let newUpdatedCompany : CompanyType = {
+          existing with
+          email = updateCompanyData.email;
+          companyName = updateCompanyData.companyName;
+          companyLogo = updateCompanyData.companyLogo;
+          social = updateCompanyData.social;
+        };
+
+        companies.put(companyId, newUpdatedCompany);
+        #ok(newUpdatedCompany);
+      };
+    };
+  };
+
   public func updateCompanyOverview(
     companies : CompanyTypes.CompaniesHashMap,
     companyId : Core.CompanyId,

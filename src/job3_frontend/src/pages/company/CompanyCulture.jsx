@@ -6,7 +6,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Edit03Icon } from "@hugeicons/core-free-icons";
 import { CompanyTextAreaForm } from '../../components/organisms/company/CompanyTextAreaForm';
 
-export const CompanyCulture = ({ company, onUpdated }) => {
+export const CompanyCulture = ({ company, onUpdated, readOnly = false }) => {
     const { authenticatedActor } = useAuth();
 
     const [data, setData] = useState(company);
@@ -19,7 +19,7 @@ export const CompanyCulture = ({ company, onUpdated }) => {
     const SectionHeader = ({ title, onEdit }) => (
         <div className="flex items-center gap-2">
             <h2 className="text-2xl base-bold">{title}</h2>
-            {onEdit && (
+            {!readOnly && onEdit && (
                 <button
                     onClick={onEdit}
                     className="text-sm p-2 rounded-md bg-transparent hover:bg-black/5 transition"
@@ -53,7 +53,7 @@ export const CompanyCulture = ({ company, onUpdated }) => {
     return (
         <div className="text-lg">
             <section className="flex flex-col gap-6">
-                <SectionHeader title="Culture" onEdit={() => setEditor("culture")} />
+                <SectionHeader title="Culture" onEdit={!readOnly ? () => setEditor("culture") : undefined} />
                 <p className="text-description">
                     {culture || "No description yet."}
                 </p>

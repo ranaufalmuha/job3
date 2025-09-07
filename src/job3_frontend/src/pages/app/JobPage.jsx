@@ -1,12 +1,11 @@
 // pages/app/JobPage.jsx
 import React, { useEffect, useMemo, useState } from "react";
-import { useAuth } from "../../contexts/AuthContext";
 import LoadingPage from "../additional/LoadingPage";
 import { JobCard } from "../../components/atoms/JobCard";
 import { Principal } from "@dfinity/principal";
+import { job3_backend } from "./../../../../declarations/job3_backend/index.js";
 
 export const JobPage = () => {
-    const { authenticatedActor } = useAuth();
     const [jobs, setJobs] = useState(null);
     const [companyMap, setCompanyMap] = useState({}); // pidText -> company
     const [loading, setLoading] = useState(true);
@@ -15,14 +14,13 @@ export const JobPage = () => {
 
     // fetch all jobs
     useEffect(() => {
-        if (!authenticatedActor) return;
         let alive = true;
 
         (async () => {
             setLoading(true);
             setErr("");
             try {
-                const res = await authenticatedActor.getAllJob();
+                const res = await job3_backend.getAllJob();
                 if (!alive) return;
                 if (res?.ok) {
                     setJobs(res.ok);
@@ -41,11 +39,11 @@ export const JobPage = () => {
         })();
 
         return () => { alive = false; };
-    }, [authenticatedActor]);
+    }, [job3_backend]);
 
     // resolve companies for unique companyId
     useEffect(() => {
-        if (!authenticatedActor || !Array.isArray(jobs) || !jobs.length) return;
+        if (!job3_backend || !Array.isArray(jobs) || !jobs.length) return;
         // cari PID yang belum ada di cache
         const needed = new Set(
             jobs
@@ -64,7 +62,7 @@ export const JobPage = () => {
                     Array.from(needed).map(async (pidText) => {
                         try {
                             const pid = Principal.fromText(pidText);
-                            const res = await authenticatedActor.getCompanyByPrincipalId(pid);
+                            const res = await job3_backend.getCompanyByPrincipalId(pid);
                             if (res?.ok) return [pidText, res.ok];
                         } catch (_) { }
                         return [pidText, null];
@@ -82,7 +80,7 @@ export const JobPage = () => {
         })();
 
         return () => { alive = false; };
-    }, [authenticatedActor, jobs, companyMap]);
+    }, [job3_backend, jobs, companyMap]);
 
     const headerNote = useMemo(() => {
         if (loadingCompanies) return "Resolving companies…";

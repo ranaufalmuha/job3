@@ -15,14 +15,14 @@ export const BusinessSection4 = () => {
                     <div className="h-24"></div>
                     <div className='z-10'>
                         <div className="grid grid-cols-5 gap-4 flex-col max-w-[400px]">
-                            <Link to={"/login"} className="hover:bg-highlight/80 duration-300 col-span-4 w-full bg-highlight flex p-4 rounded-lg text-xl items-center justify-between">
+                            <Link to={"/auth"} className="col-span-4 w-full bg-highlight hover:bg-headlines duration-300 flex p-4 rounded-lg text-xl items-center justify-between group">
                                 <p>Sign up</p>
-                                <HugeiconsIcon icon={ArrowUpRight01Icon} />
+                                <HugeiconsIcon icon={ArrowUpRight01Icon} className='group-hover:scale-125 duration-300' />
 
                             </Link>
-                            <button className="border border-white/20 p-2 rounded-lg justify-center items-center flex aspect-square backdrop-blur-sm bg-headlines/10 hover:opacity-80 duration-300">
+                            <div className="border border-white/20 p-2 rounded-lg justify-center items-center flex aspect-square backdrop-blur-sm bg-headlines/10 duration-300">
                                 <HugeiconsIcon icon={QrCodeIcon} className='w-9 h-9' />
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>

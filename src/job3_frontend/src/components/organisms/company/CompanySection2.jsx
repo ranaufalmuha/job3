@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 import { Principal } from '@dfinity/principal';
 import { useAuth } from '../../../contexts/AuthContext';
 import { fromOpt } from '../../../utils/candidOpt';
+import { job3_backend } from "./../../../../../declarations/job3_backend/index.js";
 
 export const CompanySection2 = () => {
-    const { authenticatedActor } = useAuth();
     const [companyList, setCompanyList] = useState(null);
 
     useEffect(() => {
         let alive = true;
         (async () => {
-            if (!authenticatedActor) { setCompanyList([]); return; }
+            if (!job3_backend) { setCompanyList([]); return; }
             try {
                 // 1) ambil semua company
-                const res = await authenticatedActor.getAllCompany();
+                const res = await job3_backend.getAllCompany();
                 console.log(res)
                 if (!alive) return;
 
@@ -34,7 +34,7 @@ export const CompanySection2 = () => {
                         list.map(async (item) => {
                             try {
                                 const pid = Principal.fromText(item.companyId);
-                                const jr = await authenticatedActor.getJobsByCompanyId(pid);
+                                const jr = await job3_backend.getJobsByCompanyId(pid);
                                 return jr?.ok ? (jr.ok.length || 0) : 0;
                             } catch {
                                 return 0;
@@ -53,7 +53,7 @@ export const CompanySection2 = () => {
         })();
 
         return () => { alive = false; };
-    }, [authenticatedActor]);
+    }, [job3_backend]);
 
     // skeleton saat loading: tetap pakai style/card yang sama
     const skeletons = Array.from({ length: 8 }, () => null);

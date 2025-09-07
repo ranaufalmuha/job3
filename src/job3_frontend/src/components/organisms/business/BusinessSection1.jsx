@@ -19,14 +19,14 @@ export const BusinessSection1 = () => {
                         <p className='text-xl max-xl:text-lg duration-300 text-description'>Connect with top Web3 talent and KOLs—streamline collaboration, manage engagements end-to-end, and accelerate innovation.</p>
                         <div className="flex flex-col max-w-[400px] gap-4">
                             <div className="grid grid-cols-5 gap-4">
-                                <Link to={"/login"} className="col-span-4 w-full bg-headlines text-white flex p-4 rounded-lg text-xl max-xl:text-lg items-center justify-between hover:bg-headlines/80 duration-300">
+                                <Link to={"/auth"} className="col-span-4 w-full bg-headlines text-white flex p-4 rounded-lg text-xl max-xl:text-lg items-center justify-between hover:border hover:text-headlines hover:bg-transparent duration-300 group">
                                     <p>Sign up</p>
-                                    <HugeiconsIcon icon={ArrowUpRight01Icon} />
+                                    <HugeiconsIcon icon={ArrowUpRight01Icon} className='group-hover:scale-125 duration-300' />
 
                                 </Link>
-                                <button className=" border border-white/20 p-2 rounded-lg justify-center items-center flex aspect-square backdrop-blur-sm bg-headlines/10">
+                                <div className=" border border-white/20 p-2 rounded-lg justify-center items-center flex aspect-square backdrop-blur-sm bg-headlines/10">
                                     <HugeiconsIcon icon={QrCodeIcon} className='w-9 h-9' />
-                                </button>
+                                </div>
                             </div>
                             <div className="col-span-5 w-full flex relative overflow-hidden text-start text-sm text-description">
                                 <p >Unlock your career with job 3, more than <span className='base-bold text-headlines'>$1,000,000</span> job available. <a href={""} className='text-highlight'>Discover Job3 Membership {"->"}</a></p>

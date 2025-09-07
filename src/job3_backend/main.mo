@@ -111,6 +111,10 @@ persistent actor Job3 {
   };
 
   // UPDATE
+  public shared (msg) func updateCompanyGeneral(updateCompanyData : CompanyTypes.UpdateCompanyGeneral) : async ApiResponse<CompanyType> {
+    CompanyService.updateCompanyGeneral(companies, msg.caller, updateCompanyData);
+  };
+
   public shared (msg) func updateCompanyOverview(updateCompanyData : CompanyTypes.CompanyOverview) : async ApiResponse<CompanyType> {
     CompanyService.updateCompanyOverview(companies, msg.caller, updateCompanyData);
   };
